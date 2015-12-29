@@ -481,12 +481,12 @@ unsigned lcd_print(char c) { return charset_mapper(c); }
 
     lcd.clear();
 
-    #define TEXT_SCREEN_LOGO_SHIFT ((LCD_WIDTH/2) - 4)
-    lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 0); lcd.print('\x00'); lcd_printPGM(PSTR( "------" ));  lcd.print('\x01');
-    lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 1);                    lcd_printPGM(PSTR("|Marlin|"));
-    lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 2); lcd.print('\x02'); lcd_printPGM(PSTR( "------" ));  lcd.print('\x03');
+    #define TEXT_SCREEN_LOGO_SHIFT ((LCD_WIDTH/2) - 10)
+    lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 0); lcd.print('\x00'); lcd_printPGM(PSTR( "---------------" ));  lcd.print('\x01');
+    lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 1);                    lcd_printPGM(PSTR("|SeeMeCNC  Orion|"));
+    lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 2); lcd.print('\x02'); lcd_printPGM(PSTR( "-DeviousFusion-" ));  lcd.print('\x03');
 
-    lcd_scroll(0, 3, PSTR("marlinfirmware.org"), LCD_WIDTH, 3000);
+    lcd_scroll(0, 3, PSTR("Marlin | RC3"), LCD_WIDTH, 3000);
 
     #ifdef STRING_SPLASH_LINE1
       lcd_erase_line(3);
@@ -711,7 +711,7 @@ static void lcd_implementation_status_screen() {
 
     // Show Filament Diameter and Volumetric Multiplier %
     // After allowing lcd_status_message to show for 5 seconds
-    if (millis() >= previous_lcd_status_ms + 5000) {
+    if (millis() >= previous_lcd_status_ms) {
       lcd_printPGM(PSTR("Dia "));
       lcd.print(ftostr12ns(filament_width_meas));
       lcd_printPGM(PSTR(" V"));
