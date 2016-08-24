@@ -1,3 +1,35 @@
+# Additional Notes (For Deltas at FabLab):
+1) The PID settings are obviously different as we are using the E3D hotend.
+
+2) IMPORTANT: I've disabled the manual fan control. This was required for auto fan control. If performing PID Autotune, its best to switch to manual mode as for some reaon fan won't run when performing PID Autotune. Otherwise its best to keep automatic control enabled. Following controls this behavior:
+ 
+       a) Configuration_adv.h [Line 117-127]:
+          #define EXTRUDER_0_AUTO_FAN_PIN 8       // -1=Manual 8=Automatic
+          define EXTRUDER_1_AUTO_FAN_PIN -1
+          #define EXTRUDER_2_AUTO_FAN_PIN -1
+          #define EXTRUDER_3_AUTO_FAN_PIN -1
+          #define EXTRUDER_AUTO_FAN_TEMPERATURE 120
+          #define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed
+       
+       b) pins_RAMBO.h [Line 92]:
+                    #define FAN_PIN            -1                        // 8=Manual -1=Automatic
+
+3) Might need to modify the Z-heights in Configuration.h:
+ 
+       a) Line 679: #define MANUAL_Z_HOME_POS 251.3 
+       // This is the max height traveled by the Orion in Z. Might need to be changed if using the stock extruder. I found this be zeroing the nozzle to bed and observing the distance traveled. TIP: Repetier-Host manual control works best to observe how much the head has traveled.
+
+       b) Line 420: #define Z_MAX_POS 235.0 // This HAS TO BE LESS THAN (a). If not might cause towers to crash during manual movement. Whatever value you obtain for (a) just subtract 15.0mm to get a safe value here.
+
+4) I've enabled the rotary encoder and display. During prints, the rotary encoder acts as a print speed multiplier. To enable/disable (I've disabled this for FabLab), change 
+
+       Line 304 in Configuration_adv.h: //  #define ULTIPANEL_FEEDMULTIPLY  // Comment to disable setting feedrate multiplier via encoder
+
+5) The extruder steps still need calibration. Whatever value you get do tell me as well.
+
+6) Lastly, I used the latest Arduino to compile this. To avoid compile errors and warnings, copy ArduinoAddons/Arduino_1.6.x/ to your Arduino directory.
+
+
 # Marlin 3D Printer Firmware
 <img align="top" width=175 src="Documentation/Logo/Marlin%20Logo%20GitHub.png" />
  Additional documentation can be found in [our wiki](https://github.com/MarlinFirmware/Marlin/wiki/Main-Page).
