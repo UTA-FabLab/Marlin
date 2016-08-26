@@ -15,7 +15,7 @@
 #define SERVO2_PIN  5 // PWM header pin 5
 
 #if ENABLED(Z_PROBE_SLED)
-  #define SLED_PIN         -1
+  #define SLED_PIN         10 //default disable, set to ZMin pin 10
 #endif
 
 #undef X_MS1_PIN
@@ -47,7 +47,7 @@
 
 #define Z_STEP_PIN 35
 #define Z_DIR_PIN 47
-#define Z_MIN_PIN 10
+#define Z_MIN_PIN -1  //default 10, disabled for reassignment
 #define Z_MAX_PIN 30
 #define Z_ENABLE_PIN 27
 #define Z_MS1_PIN 68

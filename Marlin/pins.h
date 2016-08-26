@@ -204,7 +204,7 @@
 
 #if ENABLED(DISABLE_Z_MIN_PROBE_ENDSTOP) || DISABLED(Z_MIN_PROBE_ENDSTOP) // Allow code to compile regardless of Z_MIN_PROBE_ENDSTOP setting.
   #undef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN    -1
+  #define Z_MIN_PROBE_PIN   10
 #endif
 
 #if ENABLED(DISABLE_XMAX_ENDSTOP)
