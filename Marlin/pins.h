@@ -196,15 +196,15 @@
 #if ENABLED(DISABLE_MIN_ENDSTOPS)
   #undef X_MIN_PIN
   #undef Y_MIN_PIN
-  #undef Z_MIN_PIN
+  //#undef Z_MIN_PIN
   #define X_MIN_PIN          -1
   #define Y_MIN_PIN          -1
-  #define Z_MIN_PIN          -1
+  //#define Z_MIN_PIN          -1  
 #endif
 
 #if ENABLED(DISABLE_Z_MIN_PROBE_ENDSTOP) || DISABLED(Z_MIN_PROBE_ENDSTOP) // Allow code to compile regardless of Z_MIN_PROBE_ENDSTOP setting.
   #undef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN    -1
+  #define Z_MIN_PROBE_PIN   10
 #endif
 
 #if ENABLED(DISABLE_XMAX_ENDSTOP)

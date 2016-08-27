@@ -18,6 +18,8 @@
   #define SLED_PIN         -1
 #endif
 
+
+
 #undef X_MS1_PIN
 #undef X_MS2_PIN
 #undef Y_MS1_PIN
@@ -47,7 +49,7 @@
 
 #define Z_STEP_PIN 35
 #define Z_DIR_PIN 47
-#define Z_MIN_PIN 10
+#define Z_MIN_PIN 10  //default 10
 #define Z_MAX_PIN 30
 #define Z_ENABLE_PIN 27
 #define Z_MS1_PIN 68

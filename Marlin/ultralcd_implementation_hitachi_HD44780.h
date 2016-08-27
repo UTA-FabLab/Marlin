@@ -483,7 +483,7 @@ unsigned lcd_print(char c) { return charset_mapper(c); }
 
     #define TEXT_SCREEN_LOGO_SHIFT ((LCD_WIDTH/2) - 10)
     lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 0); lcd.print('\x00'); lcd_printPGM(PSTR( "---------------" ));  lcd.print('\x01');
-    lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 1);                    lcd_printPGM(PSTR("|SeeMeCNC  Orion|"));
+    lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 1);                    lcd_printPGM(PSTR("|  Orion Delta |"));
     lcd.setCursor(TEXT_SCREEN_LOGO_SHIFT, 2); lcd.print('\x02'); lcd_printPGM(PSTR( "-DeviousFusion-" ));  lcd.print('\x03');
 
     lcd_scroll(0, 3, PSTR("Marlin | RC3"), LCD_WIDTH, 3000);
